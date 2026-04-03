@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>⚡ NEBULA CORE ⚡ | Космос в ультра 4K</title>
-    <!-- Шрифты + иконки -->
+    <title>⚡ NEBULA CORE ⚡ | Космос + Солнечная система</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Exo+2:ital,wght@0,300;0,400;0,600;1,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -22,7 +21,7 @@
             scroll-behavior: smooth;
         }
 
-        /* ГИПЕР-ДИНАМИЧНЫЙ ФОН С НЕОНОМ */
+        /* ФОН СО ЗВЁЗДАМИ (как было) */
         .hyper-bg {
             position: fixed;
             top: 0;
@@ -32,16 +31,6 @@
             background: radial-gradient(circle at 50% 20%, #0a0020, #000000);
             z-index: -3;
         }
-        .glow-orbit {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: repeating-linear-gradient(45deg, rgba(255, 30, 100, 0.02) 0px, rgba(255, 30, 100, 0.02) 2px, transparent 2px, transparent 8px);
-            pointer-events: none;
-            z-index: -2;
-        }
         .stars-neon {
             position: fixed;
             top: 0;
@@ -49,38 +38,52 @@
             width: 100%;
             height: 100%;
             background-image: 
-                radial-gradient(3px 3px at 18% 40%, #fff, rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 65% 85%, #ff66cc, rgba(0,0,0,0)),
-                radial-gradient(4px 2px at 92% 12%, #44ffaa, rgba(0,0,0,0)),
-                radial-gradient(1px 3px at 33% 73%, #ffaa44, rgba(0,0,0,0)),
-                radial-gradient(5px 3px at 77% 44%, #ff3366, rgba(0,0,0,0));
-            background-size: 400px 400px, 350px 350px, 500px 500px, 300px 300px, 600px 600px;
+                radial-gradient(2px 2px at 18% 40%, #fff, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 65% 85%, #ff66cc, rgba(0,0,0,0)),
+                radial-gradient(2px 1px at 92% 12%, #44ffaa, rgba(0,0,0,0)),
+                radial-gradient(1px 2px at 33% 73%, #ffaa44, rgba(0,0,0,0));
+            background-size: 300px 300px, 350px 350px, 400px 400px, 300px 300px;
             background-repeat: repeat;
-            opacity: 0.9;
-            animation: warpStars 240s linear infinite;
+            opacity: 0.7;
             pointer-events: none;
             z-index: -1;
-        }
-        @keyframes warpStars {
-            0% { background-position: 0 0, 0 0, 0 0, 0 0, 0 0; }
-            100% { background-position: 800px 800px, -500px 600px, 700px -500px, -600px 900px, 400px -800px; }
         }
 
-        /* НЕОНОВЫЕ ЛУЧИ */
-        .neon-beam {
+        /* ПЛАВАЮЩАЯ ПАНЕЛЬ СПРАВА */
+        .side-panel {
             position: fixed;
-            bottom: -20%;
-            left: -20%;
-            width: 140%;
-            height: 140%;
-            background: radial-gradient(ellipse at 30% 40%, rgba(255,0,100,0.08), transparent 70%);
-            pointer-events: none;
-            z-index: -1;
-            animation: pulseBeam 8s infinite alternate;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
-        @keyframes pulseBeam {
-            0% { opacity: 0.3; transform: scale(1);}
-            100% { opacity: 0.8; transform: scale(1.2);}
+        .side-btn {
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1.5px solid #ff44aa;
+            border-radius: 50px;
+            padding: 12px 20px;
+            color: white;
+            font-family: 'Orbitron', monospace;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: 0.2s;
+            text-align: center;
+            letter-spacing: 1px;
+            box-shadow: 0 0 15px rgba(255, 68, 170, 0.3);
+        }
+        .side-btn:hover {
+            background: #ff44aa;
+            color: black;
+            transform: scale(1.05);
+            box-shadow: 0 0 25px #ff44aa;
+        }
+        .side-btn i {
+            margin-right: 8px;
         }
 
         .container {
@@ -91,7 +94,7 @@
             z-index: 5;
         }
 
-        /* ХЕДЕР — КИБЕРПАНК ВЗРЫВ */
+        /* ХЕДЕР */
         .hero {
             min-height: 95vh;
             display: flex;
@@ -125,9 +128,7 @@
             padding: 20px 35px;
             border-radius: 60px;
             border: 1px solid #ff44aa;
-            box-shadow: 0 0 40px rgba(255,68,170,0.3);
             margin: 30px auto;
-            font-weight: 500;
         }
         .btn-group {
             margin-top: 30px;
@@ -143,18 +144,15 @@
             text-decoration: none;
             transition: 0.2s;
             font-family: 'Orbitron', monospace;
-            letter-spacing: 1px;
         }
         .btn-primary {
             background: #ff1155;
             color: white;
             box-shadow: 0 0 35px #ff1155;
-            border: 1px solid #ff88bb;
         }
         .btn-primary:hover {
             transform: scale(1.1);
             background: #ff3377;
-            box-shadow: 0 0 55px #ff3377;
         }
         .btn-outline {
             border: 2px solid #0ff;
@@ -165,10 +163,9 @@
         .btn-outline:hover {
             background: #0ff;
             color: black;
-            box-shadow: 0 0 45px cyan;
         }
 
-        /* ЗАГОЛОВКИ С НЕОНОМ */
+        /* ЗАГОЛОВКИ */
         .section-title {
             font-size: 3.8rem;
             font-family: 'Orbitron', monospace;
@@ -180,10 +177,9 @@
             color: transparent;
             border-left: 8px solid #ff44aa;
             padding-left: 30px;
-            text-shadow: 0 0 10px #ff44aa;
         }
 
-        /* СЕТКА КАРТОЧЕК С ЭФФЕКТОМ ГОЛОГРАММЫ */
+        /* СЕТКА КАРТОЧЕК */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -195,27 +191,19 @@
             backdrop-filter: blur(16px);
             border-radius: 48px;
             overflow: hidden;
-            transition: all 0.5s cubic-bezier(0.2, 0.95, 0.4, 1.2);
+            transition: all 0.4s ease;
             border: 1px solid rgba(255, 68, 170, 0.4);
-            box-shadow: 0 20px 35px -10px #ff44aa30, 0 0 0 0 #ff44aa;
-            transform-style: preserve-3d;
         }
         .cosmic-card:hover {
-            transform: translateY(-20px) rotateX(2deg);
+            transform: translateY(-12px);
             border-color: #ff44aa;
-            box-shadow: 0 30px 55px -15px #ff44aa, 0 0 25px 2px #ff44aa;
+            box-shadow: 0 0 30px rgba(255, 68, 170, 0.4);
         }
         .card-img {
             width: 100%;
             height: 280px;
             object-fit: cover;
             display: block;
-            transition: 0.6s;
-            filter: brightness(1.05) contrast(1.1);
-        }
-        .cosmic-card:hover .card-img {
-            transform: scale(1.08);
-            filter: brightness(1.2) contrast(1.2);
         }
         .card-content {
             padding: 28px;
@@ -232,37 +220,31 @@
         .tag {
             display: inline-block;
             background: #ff44aa30;
-            backdrop-filter: blur(4px);
             padding: 6px 16px;
             border-radius: 40px;
             font-size: 0.75rem;
-            font-weight: bold;
             border: 1px solid #ff66cc;
         }
 
-        /* ПАНОРАМА С ДИНАМИЧЕСКИМ СВЕЧЕНИЕМ */
+        /* ПАНОРАМА */
         .panorama {
             margin: 100px 0;
             border-radius: 70px;
             overflow: hidden;
-            position: relative;
             box-shadow: 0 0 60px rgba(255, 0, 150, 0.5);
-            transition: 0.5s;
-        }
-        .panorama:hover {
-            box-shadow: 0 0 100px #ff44aa;
         }
         .panorama-img {
             width: 100%;
             max-height: 600px;
             object-fit: cover;
-            transition: 1.2s;
         }
-        .panorama:hover .panorama-img {
-            transform: scale(1.02);
+        .panorama-caption {
+            text-align: center;
+            padding: 15px;
+            background: #000000aa;
         }
 
-        /* ЦИТАТА В СТИЛЕ КИБЕРПАНК */
+        /* ЦИТАТА */
         .quote-block {
             background: linear-gradient(145deg, #0a0a2f, #010118);
             border-radius: 80px;
@@ -270,82 +252,155 @@
             text-align: center;
             margin: 100px 0;
             border: 2px solid #ff44aa;
-            box-shadow: 0 0 70px rgba(255, 68, 170, 0.4);
-            backdrop-filter: blur(5px);
         }
         .quote-text {
             font-size: 2rem;
             font-weight: 500;
-            font-style: italic;
         }
 
-        /* FOOTER С НЕОНОМ */
+        /* ========== СОЛНЕЧНАЯ СИСТЕМА (СКРЫТА ПО УМОЛЧАНИЮ) ========== */
+        .solar-section {
+            display: none;
+            margin: 80px 0;
+        }
+        .solar-section.show {
+            display: block;
+            animation: fadeInUp 0.6s ease;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .planet-list {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            margin: 50px 0;
+        }
+        .planet-item {
+            display: flex;
+            flex-wrap: wrap;
+            background: rgba(8, 8, 25, 0.8);
+            backdrop-filter: blur(16px);
+            border-radius: 48px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 68, 170, 0.5);
+            transition: 0.3s;
+        }
+        .planet-item:hover {
+            transform: scale(1.01);
+            border-color: #ff44aa;
+            box-shadow: 0 0 30px rgba(255, 68, 170, 0.3);
+        }
+        .planet-img {
+            width: 320px;
+            height: 320px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        .planet-info {
+            padding: 35px;
+            flex: 1;
+        }
+        .planet-info h3 {
+            font-size: 2.5rem;
+            font-family: 'Orbitron', monospace;
+            color: #ff88cc;
+            margin-bottom: 15px;
+        }
+        .planet-info p {
+            font-size: 1.1rem;
+            line-height: 1.5;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        .planet-tag {
+            display: inline-block;
+            background: #ff44aa30;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            border: 1px solid #ff66cc;
+        }
+
         footer {
             text-align: center;
             padding: 60px 20px;
             border-top: 2px solid #ff44aa80;
             margin-top: 80px;
-            font-family: monospace;
-            font-size: 1.1rem;
         }
 
-        /* АДАПТИВ */
         @media (max-width: 800px) {
             .hero h1 { font-size: 2.8rem; letter-spacing: 2px; }
             .section-title { font-size: 2rem; }
-            .quote-text { font-size: 1.3rem; }
             .container { padding: 0 20px; }
-            .btn { padding: 10px 24px; }
+            .planet-img { width: 100%; height: 250px; }
+            .side-panel { right: 10px; }
+            .side-btn { padding: 8px 14px; font-size: 0.7rem; }
         }
     </style>
 </head>
 <body>
 <div class="hyper-bg"></div>
-<div class="glow-orbit"></div>
 <div class="stars-neon"></div>
-<div class="neon-beam"></div>
+
+<!-- ПЛАВАЮЩАЯ ПАНЕЛЬ СПРАВА -->
+<div class="side-panel">
+    <div class="side-btn" onclick="scrollToMain()">
+        <i class="fas fa-globe"></i> Главная
+    </div>
+    <div class="side-btn" onclick="toggleSolarSystem()">
+        <i class="fas fa-sun"></i> Солнечная система
+    </div>
+</div>
 
 <div class="container">
-    <!-- HERO ВЗРЫВ -->
-    <div class="hero">
+    <!-- ГЛАВНЫЙ ЭКРАН -->
+    <div class="hero" id="main">
         <h1>✦ NEBULA CORE ✦</h1>
-        <p><i class="fas fa-skull-crossbones"></i> ГРАВИТАЦИОННЫЙ ВЗРЫВ ВИЗУАЛА <i class="fas fa-saturn"></i><br>ТВОЙ ПОРТАЛ В БЕСКОНЕЧНОСТЬ</p>
+        <p>КОСМОС+СОЛНЕЧНАЯ СИСТЕМА <i class="fas fa-saturn"></i><br>ТАЙНЫ ЧЁРНЫХ ДЫР</p>
         <div class="btn-group">
-            <a href="#gallery" class="btn btn-primary"><i class="fas fa-eye"></i> ЗАГРУЗИТЬ ГАЛАКТИКУ</a>
-            <a href="#deepspace" class="btn btn-outline"><i class="fas fa-hand-sparkles"></i> ПАНОРАМА 4K</a>
+            <a href="#gallery" class="btn btn-primary"><i class="fas fa-eye"></i> ГАЛЕРЕЯ</a>
+            <a href="#deepspace" class="btn btn-outline"><i class="fas fa-hand-sparkles"></i> ПАНОРАМА</a>
         </div>
     </div>
 
-    <!-- БЛОК 1: ТУМАННОСТИ (ФАЙЛЫ cosmo1,2,3.jpg) -->
+    <!-- БЛОК 1: ТУМАННОСТИ (11.jpg,12.jpg,13.jpg) -->
     <div id="gallery">
         <h2 class="section-title"><i class="fas fa-star-of-life"></i> ТУМАННОСТИ & ЗВЁЗДНЫЕ ЯСЛИ</h2>
         <div class="gallery-grid">
-            <div class="cosmic-card"><img class="card-img" src="11.jpg" alt="Туманность Орла" onerror="this.src='11.jpeg'"><div class="card-content"><h3>Столпы Творения</h3><p>Легендарные «хоботы» в туманности Орёл — рождение звёзд.</p><span class="tag"><i class="fas fa-camera"></i> Hubble / JWST</span></div></div>
-            <div class="cosmic-card"><img class="card-img" src="12.jpg" alt="Туманность Киля" onerror="this.src='12.jpeg'"><div class="card-content"><h3>Туманность Киля</h3><p>Гигантская колыбель звёзд-монстров.</p><span class="tag"><i class="fas fa-camera"></i> ESO / VLT</span></div></div>
-            <div class="cosmic-card"><img class="card-img" src="13.jpg" alt="Галактика Водоворот" onerror="this.src='13.jpeg'"><div class="card-content"><h3>Водоворот M51</h3><p>Спиральный танец с галактикой-компаньоном.</p><span class="tag"><i class="fas fa-camera"></i> NASA / Chandra</span></div></div>
+            <div class="cosmic-card"><img class="card-img" src="11.jpeg" alt="Туманность Орла" onerror="11.jpeg'"><div class="card-content"><h3>Столпы Творения</h3><p>Легендарные «хоботы» в туманности Орёл — рождение звёзд.</p><span class="tag"><i class="fas fa-camera"></i> Hubble / JWST</span></div></div>
+            <div class="cosmic-card"><img class="card-img" src="12.jpeg" alt="Туманность Киля" onerror="12.jpeg'"><div class="card-content"><h3>Туманность Киля</h3><p>Гигантская колыбель звёзд-монстров.</p><span class="tag"><i class="fas fa-camera"></i> ESO / VLT</span></div></div>
+            <div class="cosmic-card"><img class="card-img" src="13.jpeg" alt="Галактика Водоворот" onerror="13.jpeg'"><div class="card-content"><h3>Водоворот M51</h3><p>Спиральный танец с галактикой-компаньоном.</p><span class="tag"><i class="fas fa-camera"></i> NASA / Chandra</span></div></div>
         </div>
     </div>
 
-    <!-- БЛОК 2: ПЛАНЕТЫ (cosmo4,5,6.jpg) -->
+    <!-- БЛОК 2: ПЛАНЕТЫ (14.jpg,15.jpg,16.jpg) -->
     <h2 class="section-title"><i class="fas fa-globe-asia"></i> МИРЫ ИНЫХ ИЗМЕРЕНИЙ</h2>
     <div class="gallery-grid">
-        <div class="cosmic-card"><img class="card-img" src="14.jpg" alt="Юпитер" onerror="this.src='14.jpeg'"><div class="card-content"><h3>Юпитер — повелитель бурь</h3><p>Гигант с вечным штормом — Большое красное пятно.</p><span class="tag"><i class="fas fa-camera"></i> NASA / Juno</span></div></div>
-        <div class="cosmic-card"><img class="card-img" src="15.jpg" alt="Энцелад" onerror="this.src='15.jpeg'"><div class="card-content"><h3>Энцелад — ледяной гейзер</h3><p>Струи воды в космос — возможный очаг жизни.</p><span class="tag"><i class="fas fa-camera"></i> Cassini</span></div></div>
-        <div class="cosmic-card"><img class="card-img" src="16.jpg" alt="TRAPPIST-1e" onerror="this.src='16.jpeg'"><div class="card-content"><h3>Экзопланета TRAPPIST-1e</h3><p>Скалистый мир в обитаемой зоне красного карлика.</p><span class="tag"><i class="fas fa-camera"></i> Художественное фото</span></div></div>
+        <div class="cosmic-card"><img class="card-img" src="jupiter.jpeg" alt="Юпитер" onerror="this.src='jupiter.jpeg'"><div class="card-content"><h3>Юпитер — повелитель бурь</h3><p>Гигант с вечным штормом — Большое красное пятно.</p><span class="tag"><i class="fas fa-camera"></i> NASA / Juno</span></div></div>
+        <div class="cosmic-card"><img class="card-img" src="15.jpeg" alt="Энцелад" onerror="this.src='15.jpeg'"><div class="card-content"><h3>Энцелад — ледяной гейзер</h3><p>Струи воды в космос — возможный очаг жизни.</p><span class="tag"><i class="fas fa-camera"></i> Cassini</span></div></div>
+        <div class="cosmic-card"><img class="card-img" src="16.jpeg" alt="TRAPPIST-1e" onerror="this.src='16.jpeg'"><div class="card-content"><h3>Экзопланета TRAPPIST-1e</h3><p>Скалистый мир в обитаемой зоне красного карлика.</p><span class="tag"><i class="fas fa-camera"></i> Художественное фото</span></div></div>
     </div>
 
     <!-- ПАНОРАМА (panorama_space.jpg) -->
     <div id="deepspace" class="panorama">
-        <img class="panorama-img" src="panorama_space.jpg" alt="Панорама Млечного Пути" onerror="this.src='17.jpeg'">
-        <div class="panorama-caption" style="text-align:center; padding:15px; background:#000000aa;"><i class="fas fa-arrows-alt"></i> МЛЕЧНЫЙ ПУТЬ 360° — ЗВЁЗДНЫЙ ПОРТАЛ</div>
+        <img class="panorama-img" src="panorama_space.jpg" alt="Панорама Млечного Пути" onerror="this.src='panorama_space.jpeg'">
+        <div class="panorama-caption"><i class="fas fa-arrows-alt"></i> МЛЕЧНЫЙ ПУТЬ 360° — ЗВЁЗДНЫЙ ПОРТАЛ</div>
     </div>
 
-    <!-- БЛОК 3: ЧЁРНЫЕ ДЫРЫ (cosmo7,8,9.jpg) -->
+    <!-- БЛОК 3: ЧЁРНЫЕ ДЫРЫ (cosmo7.jpg, cosmo8.jpg, cosmo9.jpg) -->
     <h2 class="section-title"><i class="fas fa-meteor"></i> ТАЙНЫ ЧЁРНЫХ ДЫР</h2>
     <div class="gallery-grid">
-        <div class="cosmic-card"><img class="card-img" src="cosmo7.jpg" alt="Чёрная дыра M87" onerror="this.src='18.jpeg'"><div class="card-content"><h3>M87* — первая тень</h3><p>Исторический снимок горизонта событий.</p><span class="tag"><i class="fas fa-camera"></i> EHT</span></div></div>
-        <div class="cosmic-card"><img class="card-img" src="cosmo8.jpg" alt="Шаровое скопление" onerror="this.src='19.jpeg'"><div class="card-content"><h3>Омега Центавра</h3><p>Миллионы звёзд в одном шаре.</p><span class="tag"><i class="fas fa-camera"></i> Hubble Legacy</span></div></div>
-        <div class="cosmic-card"><img class="card-img" src="cosmo9.jpg" alt="Столкновение галактик" onerror="this.src='20.jpeg'"><div class="card-content"><h3>Антенны — столкновение</h3><p>Гравитационный хаос двух галактик.</p><span class="tag"><i class="fas fa-camera"></i> ALMA / VLT</span></div></div>
+        <div class="cosmic-card"><img class="card-img" src="18.jpeg" alt="Чёрная дыра M87" onerror="this.src='18.jpeg'"><div class="card-content"><h3>M87* — первая тень</h3><p>Исторический снимок горизонта событий.</p><span class="tag"><i class="fas fa-camera"></i> EHT</span></div></div>
+        <div class="cosmic-card"><img class="card-img" src="19.jpeg" alt="Шаровое скопление" onerror="this.src='19.jpeg'"><div class="card-content"><h3>Омега Центавра</h3><p>Миллионы звёзд в одном шаре.</p><span class="tag"><i class="fas fa-camera"></i> Hubble Legacy</span></div></div>
+        <div class="cosmic-card"><img class="card-img" src="20.jpeg" alt="Столкновение галактик" onerror="this.src='20.jpeg'"><div class="card-content"><h3>Антенны — столкновение</h3><p>Гравитационный хаос двух галактик.</p><span class="tag"><i class="fas fa-camera"></i> ALMA / VLT</span></div></div>
     </div>
 
     <!-- БОНУС: ТЕЛЕСКОП (cosmo10.jpg) -->
@@ -353,17 +408,100 @@
         <i class="fas fa-telescope" style="font-size: 4rem; color:#ff44aa;"></i>
         <div class="quote-text">«МЫ — СПОСОБ КОСМОСА ПОЗНАТЬ СЕБЯ. КАЖДАЯ ФОТОГРАФИЯ — ШАГ В БЕСКОНЕЧНОСТЬ»</div>
         <div style="margin-top: 25px;">
-            <img src="cosmo10.jpg" alt="Телескоп Джеймс Уэбб" style="max-width: 100%; border-radius: 60px; max-height: 320px; object-fit: cover; border: 2px solid #ff44aa;" onerror="this.src='https://placehold.co/1000x500/111c2f/white?text=JWST+ULTRA+VIEW'">
+            <img src="cosmo10.jpg" alt="Телескоп Джеймс Уэбб" style="max-width: 100%; border-radius: 60px; max-height: 320px; object-fit: cover; border: 2px solid #ff44aa;" onerror="this.src='https://placehold.co/1000x500/111c2f/white?text=cosmo10.jpg'">
             <p style="margin-top: 20px;">🔭 James Webb — взгляд в рождение Вселенной</p>
         </div>
     </div>
 
+    <!-- ============================================= -->
+    <!--   СОЛНЕЧНАЯ СИСТЕМА (СКРЫТА ДО НАЖАТИЯ)       -->
+    <!-- ============================================= -->
+    <div id="solarsystem" class="solar-section">
+        <h2 class="section-title"><i class="fas fa-sun"></i> СОЛНЕЧНАЯ СИСТЕМА</h2>
+        <div class="planet-list">
+            <!-- ЗЕМЛЯ -->
+            <div class="planet-item">
+                <img class="planet-img" src="earth.jpg" alt="Земля" onerror="this.src='21.jpeg'">
+                <div class="planet-info">
+                    <h3>🌍 ЗЕМЛЯ</h3>
+                    <p>Наш дом — третья планета от Солнца. Единственное известное место во Вселенной, где есть жизнь.</p>
+                    <span class="planet-tag"><i class="fas fa-camera"></i> Ваше фото: earth.jpg</span>
+                </div>
+            </div>
+            <!-- МАРС -->
+            <div class="planet-item">
+                <img class="planet-img" src="mars.jpg" alt="Марс" onerror="this.src='22.jpeg'">
+                <div class="planet-info">
+                    <h3>🔴 МАРС</h3>
+                    <p>Красная планета — четвёртая от Солнца. Самые высокие вулканы в Солнечной системе.</p>
+                    <span class="planet-tag"><i class="fas fa-camera"></i> Ваше фото: mars.jpg</span>
+                </div>
+            </div>
+            <!-- ЮПИТЕР -->
+            <div class="planet-item">
+                <img class="planet-img" src="jupiter.jpeg" alt="Юпитер" onerror="jupiter.jpeg'">
+                <div class="planet-info">
+                    <h3>🟤 ЮПИТЕР</h3>
+                    <p>Король планет — газовый гигант, самая большая планета. Большое красное пятно.</p>
+                    <span class="planet-tag"><i class="fas fa-camera"></i> Ваше фото: mars.jpg</span>
+                </div>
+            </div>
+            <!-- САТУРН -->
+            <div class="planet-item">
+                <img class="planet-img" src="saturn.jpg" alt="Сатурн" onerror="this.src='23.jpeg'">
+                <div class="planet-info">
+                    <h3>🪐 САТУРН</h3>
+                    <p>Планета с самыми красивыми кольцами. Газовый гигант.</p>
+                    <span class="planet-tag"><i class="fas fa-camera"></i> Ваше фото: saturn.jpg</span>
+                </div>
+            </div>
+            <!-- УРАН -->
+            <div class="planet-item">
+                <img class="planet-img" src="uranus.jpg" alt="Уран" onerror="this.src='24.jpeg'">
+                <div class="planet-info">
+                    <h3>💚 УРАН</h3>
+                    <p>Ледяной гигант, вращающийся «лёжа на боку».</p>
+                    <span class="planet-tag"><i class="fas fa-camera"></i> Ваше фото: uranus.jpg</span>
+                </div>
+            </div>
+            <!-- НЕПТУН -->
+            <div class="planet-item">
+                <img class="planet-img" src="neptune.jpg" alt="Нептун" onerror="this.src='25.jpeg'">
+                <div class="planet-info">
+                    <h3>💙 НЕПТУН</h3>
+                    <p>Самый дальний гигант. Самые сильные ветры в Солнечной системе.</p>
+                    <span class="planet-tag"><i class="fas fa-camera"></i> Ваше фото: neptune.jpg</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer>
-        <p><i class="fas fa-sun"></i> NEBULA CORE — ЭПИЧЕСКАЯ ГАЛЕРЕЯ ВСЕЛЕННОЙ | powered by кибер-космос</p>
+        <p><i class="fas fa-sun"></i> NEBULA CORE — ГАЛЕРЕЯ ВСЕЛЕННОЙ + СОЛНЕЧНАЯ СИСТЕМА</p>
     </footer>
 </div>
 
 <script>
+    // Плавный скролл к главной
+    function scrollToMain() {
+        document.getElementById('main').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    
+    // Показать/скрыть Солнечную систему (откроется внизу страницы)
+    function toggleSolarSystem() {
+        const solarSection = document.getElementById('solarsystem');
+        if (solarSection.classList.contains('show')) {
+            solarSection.classList.remove('show');
+        } else {
+            solarSection.classList.add('show');
+            // Плавно скроллим к солнечной системе
+            setTimeout(() => {
+                solarSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+        }
+    }
+    
+    // Плавный скролл для ссылок
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -371,6 +509,8 @@
             if(target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
     });
+    
+    // Эффект появления карточек
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if(entry.isIntersecting) {
@@ -379,13 +519,15 @@
             }
         });
     }, { threshold: 0.1 });
-    document.querySelectorAll('.cosmic-card, .panorama, .quote-block').forEach(el => {
+    
+    document.querySelectorAll('.cosmic-card, .panorama, .quote-block, .planet-item').forEach(el => {
         el.style.opacity = '0';
-        el.style.transform = 'translateY(40px)';
-        el.style.transition = 'opacity 0.8s ease, transform 0.7s ease';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.5s ease';
         observer.observe(el);
     });
     document.querySelector('.hero').style.opacity = '1';
+    document.querySelector('.hero').style.transform = 'translateY(0)';
 </script>
 </body>
-</html> 
+</html>
